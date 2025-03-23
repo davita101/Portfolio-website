@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+* {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #010103;
+    font-family: 'Roboto', sans-serif;
+}
+
+@layer utilities {
+    .nav-link {
+        @apply text-neutral-400  hover:text-neutral-100 cursor-pointer ;
+    }
+    .nav-sidebar {
+        @apply max-sm:overflow-hidden px-4  duration-300 ease-in-out max-sm:bg-neutral-800 rounded-b-2xl transition-all ;
+    }
+}
+
+@layer base {
+    button {
+        @apply cursor-pointer text-neutral-400  hover:text-neutral-100 focus:outline-none sm:hidden flex;
+    }
+}
