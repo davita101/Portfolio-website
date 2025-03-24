@@ -10,14 +10,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-three/drei": "^10.0.4",
+    "@react-three/fiber": "^9.1.0",
     "@tailwindcss/vite": "^4.0.15",
+    "leva": "^0.10.0",
     "lucide-react": "^0.483.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "tailwindcss": "^4.0.15"
+    "react-responsive": "^10.0.1",
+    "tailwindcss": "^4.0.15",
+    "three": "^0.174.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
+    "@react-three/eslint-plugin": "^0.1.2",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
