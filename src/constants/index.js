@@ -24,3 +24,12 @@ export const navLinks = [
         url: "/contact",
     },
 ];
+
+export const calculateSizes = (isSmall, isMobile, isTablet,) => {
+    return {
+        scale: isMobile ?  .8 : 2.0,
+        objectPosition: isMobile ? [0.7, 3.5, 2.5] : [2.3, -2.5, -10.0],
+
+    }
+
+}
