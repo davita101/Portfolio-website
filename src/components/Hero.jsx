@@ -3,9 +3,12 @@ import {Canvas} from "@react-three/fiber";
 import {PerspectiveCamera} from "@react-three/drei";
 import {ProgrammersRoom} from "./models/ProgrammersRoom.jsx";
 import CanvasLoader from "./CanvasLoader.jsx";
-import {Leva, useControls} from "leva";
 import {useMediaQuery} from "react-responsive";
 import {calculateSizes} from "../constants/index.js";
+import {ReactLogo} from "./models/ReactLogo.jsx";
+import {Target} from "./Target.jsx";
+import {Leva, useControls} from "leva";
+import {Cube} from "./models/Cube.jsx";
 
 export default function Hero() {
     const isTablet = useMediaQuery({maxWidth: 768})
@@ -14,44 +17,44 @@ export default function Hero() {
 
     const sizes = calculateSizes(isSmall, isMobile, isTablet)
 
-    // const x = useControls("ProgrammersRoom",
-    //     {
-    //         positionX: {
-    //             value: 2.5,
-    //             min: -10,
-    //             max: 10,
-    //         },
-    //         positionY: {
-    //             value: 2.5,
-    //             min: -10,
-    //             max: 10,
-    //         },
-    //         positionZ: {
-    //             value: 2.5,
-    //             min: -10,
-    //             max: 10,
-    //         },
-    //         scale: {
-    //             value: 1,
-    //             min: 0.1,
-    //             max: 10,
-    //         },
-    //         rotationX: {
-    //             value: 0,
-    //             min: -10,
-    //             max: 10,
-    //         },
-    //         rotationY: {
-    //             value: 0,
-    //             min: -10,
-    //             max: 10,
-    //         },
-    //         rotationZ: {
-    //             value: 0,
-    //             min: -10,
-    //             max: 10,
-    //         },
-    //     })
+    const x = useControls("ProgrammersRoom",
+        {
+            positionX: {
+                value: 2.5,
+                min: -10,
+                max: 10,
+            },
+            positionY: {
+                value: 2.5,
+                min: -10,
+                max: 10,
+            },
+            positionZ: {
+                value: 2.5,
+                min: -10,
+                max: 10,
+            },
+            scale: {
+                value: 1,
+                min: 0.1,
+                max: 10,
+            },
+            rotationX: {
+                value: 0,
+                min: -10,
+                max: 10,
+            },
+            rotationY: {
+                value: 0,
+                min: -10,
+                max: 10,
+            },
+            rotationZ: {
+                value: 0,
+                min: -10,
+                max: 10,
+            },
+        })
 
 
     return (<div>
@@ -62,20 +65,35 @@ export default function Hero() {
                 <p className="text-gradient font-bold text-center md:text-5xl text-3xl  ">I am a web developer</p>
             </div>
             <div className="w-full h-full absolute ">
-                {/*<Leva/>*/}
+
+                <Leva/>
                 <Canvas>
                     <Suspense fallback={<CanvasLoader/>}>
                         <PerspectiveCamera makeDefault position={[0, 0, 30]}/>
+
                         <ProgrammersRoom
                             scale={sizes.scale}
                             position={sizes.objectPosition}
                             rotation={[-.1, 0, 0]}
-                            // position={[x.positionX, x.positionY, x.positionZ]}
-                            // rotation={[x.rotationY, x.rotationX, x.rotationZ]}
-                            // scale={[x.scale, x.scale, x.scale]}
                         />
+                        <group>
+                            <Target
+                                scale={sizes.scale}
+                                position={sizes.targetPosition}
+                                rotation={[3, 1.7, 0]}
+
+                            />
+                            <ReactLogo
+                                position={sizes.reactLogoPosition}/>
+                            <Cube
+                                position={[-7.1, 6.5, 2.5]}
+                                rotation={[x.rotationY, x.rotationX, x.rotationZ]}
+                                scale={[x.scale, x.scale, x.scale]}
+                            />
+                        </group>
+
                         <ambientLight
-                            intensity={1}/>
+                            intensity={1.5}/>
                         <directionalLight
                             position={[10, 10, 10]}
                             intensity={0.5}/>

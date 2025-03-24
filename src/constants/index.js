@@ -27,9 +27,10 @@ export const navLinks = [
 
 export const calculateSizes = (isSmall, isMobile, isTablet,) => {
     return {
-        scale: isMobile ?  .8 : 2.0,
+        scale: isMobile ? .8 : 2.0,
         objectPosition: isMobile ? [0.7, 3.5, 2.5] : [2.3, -2.5, -10.0],
-
+        targetPosition: isMobile ? [-3, 3.3, 6.1] : [-8.3, -1.3, 2.5],
+        reactLogoPosition: isMobile ? [4, 11, 1] : [6, 6, 8],
     }
 
 }

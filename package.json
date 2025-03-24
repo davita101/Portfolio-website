@@ -10,9 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@react-three/drei": "^10.0.4",
     "@react-three/fiber": "^9.1.0",
     "@tailwindcss/vite": "^4.0.15",
+    "gsap": "^3.12.7",
     "leva": "^0.10.0",
     "lucide-react": "^0.483.0",
     "react": "^19.0.0",
