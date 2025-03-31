@@ -1,12 +1,14 @@
 import React from 'react'
-import Navbar from "./components/Navbar.jsx";
-import Hero from "./components/Hero.jsx";
+import Navbar from "./sections/Navbar.jsx";
+import Hero from "./sections/Hero.jsx";
+import About from "./sections/About.jsx";
 
 export default function App() {
     return (
         <main>
-           <Navbar />
-            <Hero />
+            <Navbar/>
+            <Hero/>
+            <About />
         </main>
     )
 }

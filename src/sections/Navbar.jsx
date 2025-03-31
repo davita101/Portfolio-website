@@ -20,7 +20,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto">
             <div className="flex justify-between py-4  sm:px-10 px-5 flex-col sm:flex-row">
                 <div className="flex items-center space-x-5 w-full justify-between">
-                    <a href="/" className="text-neutral-400 font-bold text-xl hover:text-white transition-colors">
+                    <a href="/public" className="text-neutral-400 font-bold text-xl hover:text-white transition-colors">
                         Davita
                     </a>
                     <button

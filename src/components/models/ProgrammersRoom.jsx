@@ -1,9 +1,11 @@
 
 import React, {useRef} from 'react'
-import {useGLTF} from '@react-three/drei'
+import {useGLTF, useTexture, } from '@react-three/drei'
 // useGLTF.preload('/models/programmer-desktop.glb')
 export function ProgrammersRoom(props) {
     const {nodes, materials} = useGLTF('/models/programmer-desktop.glb')
+    const screenShoot = useTexture("/textures/(programmersRoom)/img.png")
+
     return (
         <group {...props} dispose={null}>
             <group rotation={[-Math.PI / 2, 0, -Math.PI / 2]}>
@@ -2558,7 +2560,9 @@ export function ProgrammersRoom(props) {
                         position={[-136.177, 300.132, 300.405]}
                         rotation={[-Math.PI / 2, 1.501, Math.PI / 2]}
                         scale={[331.621, 348.065, 331.621]}
-                    />
+                    >
+                        <meshBasicMaterial map={screenShoot} />
+                    </mesh>
                     <mesh
                         castShadow
                         receiveShadow

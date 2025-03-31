@@ -39,6 +39,10 @@ body {
     button {
         @apply cursor-pointer text-neutral-400  hover:text-neutral-100 focus:outline-none sm:hidden flex;
     }
+
+    p {
+        @apply leading-tight text-neutral-100;
+    }
 }
 
 .waweing-heand {

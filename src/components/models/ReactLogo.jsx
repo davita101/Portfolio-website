@@ -1,4 +1,3 @@
-import React, {useRef} from 'react'
 import {Float, useGLTF} from '@react-three/drei'
 
 export function ReactLogo(props) {

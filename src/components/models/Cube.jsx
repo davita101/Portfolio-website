@@ -19,7 +19,7 @@ export function Cube(props) {
             .to(cubeRef.current.rotation, {
                 y: `+=${Math.PI * 2}`,
                 x: `-=${Math.PI * 2}`,
-                duration: 2.5,
+                duration: 5,
                 yoyo: true,
             })
 
