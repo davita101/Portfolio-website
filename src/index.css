@@ -12,6 +12,12 @@ body {
 
 @theme {
     --color-white: #adadad;
+    --color-neutral-950: #121215;
+
+    --text-preset-1: 24px;
+    --text-preset-1--line-height: 120%;
+    --text-preset-1--letter-spacing: -0.5px;
+    --text-preset-1--font-weight: 700;
 }
 
 @layer utilities {
@@ -26,12 +32,21 @@ body {
     .nav-sidebar {
         @apply max-sm:overflow-hidden px-4  duration-300 ease-in-out max-sm:bg-neutral-800 rounded-b-2xl transition-all ;
     }
-
     .text-gradient {
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-image: linear-gradient(to right, #646464, #adadad);
+    }
+
+    .card{
+        @apply shadow-lg rounded-lg bg-neutral-950 overflow-hidden p-5;
+    }
+    .grid-container {
+        @apply  w-full h-full rounded-lg sm:p-7 p-4 flex flex-col gap-5 bg-neutral-950;
+    }
+    .img-w {
+        @apply sm:w-21 w-16;
     }
 }
 
@@ -41,7 +56,7 @@ body {
     }
 
     p {
-        @apply leading-tight text-neutral-100;
+        @apply leading-tight text-gray-400;
     }
 }
 

@@ -1,1 +1,2 @@
-export { default as ProfilePicture } from './profile.png'
+export {default as ProfilePicture} from './profile.jpg'
+export {default as CoddingPicture} from './codding.png'

@@ -17,7 +17,7 @@ export default function Navbar() {
 
     const toggleMenu = () => setIsOpen((prevState) => !prevState)
     return (<header className="fixed top-0 left-0 right-0 z-50 bg-black/90 text-white">
-        <div className="max-w-7xl mx-auto">
+        <div className="container mx-auto">
             <div className="flex justify-between py-4  sm:px-10 px-5 flex-col sm:flex-row">
                 <div className="flex items-center space-x-5 w-full justify-between">
                     <a href="/public" className="text-neutral-400 font-bold text-xl hover:text-white transition-colors">

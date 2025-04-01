@@ -59,7 +59,7 @@ export default function Hero() {
     //     })
 
 
-    return (<div>
+    return (<section id="home">
         <div className="min-h-screen border-blue-500 w-full flex flex-col relative overflow-hidden">
             <div className="c-space w-full mx-auto  flex flex-col sm:mt-36 mt-20 gap-3">
                 <p className="sm:text-3xl text-xl font-medium text-white text-center "> I am Davit <span
@@ -108,11 +108,11 @@ export default function Hero() {
                 </Canvas>
             </div>
             <div className="flex absolute bottom-1 left-0 right-0 w-full z-10 c-space">
-                <div className="p-1 px-3 rounded-sm bg-blue-400 mx-auto gap-2 flex items-center justify-center  ">
-                    <div className="p-2 bg-blue-900 rounded-full animate-pulse"/>
-                    <p className="text-blue-950">Lets have a business</p>
+                <div className="p-1 px-3 rounded-sm bg-neutral-950 mx-auto gap-2 flex items-center justify-center  ">
+                    <div className="p-2 bg-neutral-50 rounded-full animate-pulse"/>
+                    <p className="text-neutral-300">Lets have a business</p>
                 </div>
             </div>
         </div>
-    </div>)
+    </section>)
 }
