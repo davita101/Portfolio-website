@@ -10,7 +10,7 @@ export function Tape(props) {
 
     useGSAP(() => {
         gsap.to(targetRef.current.position, {
-            x: targetRef.current.position.y + 1,
+            z: targetRef.current.position.x + .3,
             duration: 1.5,
             repeat: -1,
             yoyo: true,
@@ -18,8 +18,8 @@ export function Tape(props) {
     })
     return (
         <Float>
-            <group rotation={[-Math.PI / 2, 0, Math.PI / 2]} {...props} dispose={null}>
-                <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
+            <group rotation={[-Math.PI / 2, 0, Math.PI / 2]} {...props}  dispose={null}>
+                <group rotation={[Math.PI / 2, 0, 0]}  scale={0.01}>
                     <mesh
                         ref={targetRef}
                         castShadow
@@ -36,4 +36,4 @@ export function Tape(props) {
     )
 }
 
-useGLTF.preload('//models/tape.glb')
+useGLTF.preload('/models/tape.glb')

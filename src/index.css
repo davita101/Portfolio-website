@@ -52,7 +52,7 @@ body {
 
 @layer base {
     button {
-        @apply cursor-pointer text-neutral-400  hover:text-neutral-100 focus:outline-none sm:hidden flex;
+        @apply cursor-pointer text-gray-400  hover:text-neutral-100 focus:outline-none sm:hidden flex;
     }
 
     p {

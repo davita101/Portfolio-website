@@ -13,11 +13,11 @@ import HeroCamera from "../components/Hero-camera.jsx";
 import {Tape} from "../components/models/Tape.jsx";
 
 export default function Hero() {
-    // const isTablet = useMediaQuery({maxWidth: 768})
+    const isTablet = useMediaQuery({minWidth: 634,maxWidth: 768})
     const isMobile = useMediaQuery({maxWidth: 634})
     const isSmall = useMediaQuery({maxWidth: 440})
 
-    const sizes = calculateSizes(isSmall, isMobile)
+    const sizes = calculateSizes(isSmall, isMobile, isTablet)
 
     // const x = useControls("ProgrammersRoom",
     //     {
@@ -78,7 +78,7 @@ export default function Hero() {
                                 rotation={[-.1, 0, 0]}
                             />
                         </HeroCamera>
-                        <group>
+                        <group >
                             <Target
                                 scale={sizes.targetScale}
                                 position={sizes.targetPosition}
@@ -98,7 +98,6 @@ export default function Hero() {
                             />
 
                         </group>
-
                         <ambientLight
                             intensity={1.5}/>
                         <directionalLight
