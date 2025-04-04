@@ -1,15 +1,19 @@
-import React, {useEffect, useRef} from 'react'
+import React, {useRef} from 'react'
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {useGLTF, useVideoTexture} from "@react-three/drei";
 import {useMediaQuery} from "react-responsive";
+import {calculateSizes} from "../../constants/index.js";
 
 
 export function ProjectComputer(props) {
     const {nodes, materials} = useGLTF('/models/computer.glb')
-    const isMobile = useMediaQuery({maxWidth: 634})
+    const isTablet = useMediaQuery({minWidth: 768, maxWidth: 1280});
+    const isMobile = useMediaQuery({maxWidth: 777})
+    const isSmall = useMediaQuery({maxWidth: 440})
 
+    const sizes = calculateSizes(isSmall, isMobile, isTablet)
     const group = useRef()
     gsap.registerPlugin(ScrollTrigger)
     useGSAP(() => {
@@ -19,25 +23,34 @@ export function ProjectComputer(props) {
             })
             .to(group.current.rotation, {
                 scrollTrigger: {
-                    start: "70% center", end: "bottom bottom", scrub: true,
+                    start: "70% center",
+                    end: "bottom bottom",
+                    scrub: true,
                 },
-                x: group.current.rotation.x + 1.5,
-                ease: "easeOutQuad",
-                duration: 5,
+                // x: isMobile ? group.current.rotation.x + 1.2 : group.current.rotation.x + 1.5,
+                ease: "power2.in",
+                duration: 10,
             })
             .to(group.current.position, {
                 scrollTrigger: {
                     start: "70% center", end: "bottom bottom", scrub: true,
                 },
-                x: group.current.position.x + 10,
+                x: isTablet && group.current.position.x + 1,
                 ease: "easeOutQuad",
                 duration: 5,
             })
+        return () => {
+            animation.endTime()
+        }
 
     })
     const video = useVideoTexture(props.videoUrl)
     return (
-        <group ref={group} {...props} dispose={null}>
+        <group ref={group} {...props}
+               // scale={sizes.aboutScale}
+               // rotation={[1.5, 0, 0]}
+               // position={sizes.aboutPosition}
+               dispose={null}>
             <group scale={20} rotation={[-Math.PI / 2 + .3, 0, 0]}>
                 <group position={[0.368, -0.441, -0.295]} rotation={[0, -0.747, 0]} scale={0.06}>
                     <mesh
