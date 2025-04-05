@@ -11,9 +11,8 @@ export function ProjectComputer(props) {
     const {nodes, materials} = useGLTF('/models/computer.glb')
     const isTablet = useMediaQuery({minWidth: 768, maxWidth: 1280});
     const isMobile = useMediaQuery({maxWidth: 777})
-    const isSmall = useMediaQuery({maxWidth: 440})
 
-    const sizes = calculateSizes(isSmall, isMobile, isTablet)
+    const sizes = calculateSizes(0, isMobile, isTablet)
     const group = useRef()
     gsap.registerPlugin(ScrollTrigger)
     useGSAP(() => {

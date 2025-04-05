@@ -7,13 +7,13 @@ import {useMediaQuery} from "react-responsive";
 import {calculateSizes} from "../constants/index.js";
 import {ReactLogo} from "../components/models/ReactLogo.jsx";
 import {Target} from "../components/Target.jsx";
-import {Leva, useControls} from "leva";
 import {Cube} from "../components/models/Cube.jsx";
 import HeroCamera from "../components/Hero-camera.jsx";
 import {Tape} from "../components/models/Tape.jsx";
+import Button from "../components/ui/Button.jsx";
 
 export default function Hero() {
-    const isTablet = useMediaQuery({minWidth: 634,maxWidth: 768})
+    const isTablet = useMediaQuery({minWidth: 634, maxWidth: 768})
     const isMobile = useMediaQuery({maxWidth: 634})
     const isSmall = useMediaQuery({maxWidth: 440})
 
@@ -63,7 +63,7 @@ export default function Hero() {
         <div className="min-h-screen border-blue-500 w-full flex flex-col relative overflow-hidden">
             <div className="c-space w-full mx-auto  flex flex-col sm:mt-36 mt-20 gap-3">
                 <p className="sm:text-3xl text-xl font-medium text-white text-center "> I am Davit <span
-                    className="waweing-heand">&#128075;</span></p>
+                    className="waving-hand">&#128075;</span></p>
                 <p className="text-gradient font-bold text-center md:text-5xl text-3xl  ">I am a web developer</p>
             </div>
             <div className="w-full h-full absolute ">
@@ -78,7 +78,7 @@ export default function Hero() {
                                 rotation={[-.1, 0, 0]}
                             />
                         </HeroCamera>
-                        <group >
+                        <group>
                             <Target
                                 scale={sizes.targetScale}
                                 position={sizes.targetPosition}
@@ -106,12 +106,13 @@ export default function Hero() {
                     </Suspense>
                 </Canvas>
             </div>
-            <div className="flex absolute bottom-1 left-0 right-0 w-full z-10 c-space">
-                <div className="p-1 px-3 rounded-sm bg-neutral-950 mx-auto gap-2 flex items-center justify-center  ">
-                    <div className="p-2 bg-neutral-50 rounded-full animate-pulse"/>
-                    <p className="text-neutral-300">Lets have a business</p>
+
+            <a href="#about">
+                <div className="flex absolute bottom-5 left-0 right-0 w-full z-10 c-space">
+                    <Button>About myself</Button>
                 </div>
-            </div>
+            </a>
+
         </div>
     </section>)
 }

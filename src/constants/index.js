@@ -1,9 +1,9 @@
 import {
-    GsapIcon,
+    GsapIcon, NextJsIcon,
     NodeIcon,
     ReactIcon,
     ShadCnIcon,
-    TailwindIcon,
+    TailwindIcon, ThreeJsIcon,
     TsIcon,
     ZodIcon,
     ZustandIcon
@@ -54,8 +54,30 @@ export const projects = [
         status: "Not finished",
         github: "https://github.com/grdzelo-cloud/Goal-Oriented-Academy-Server-Website",
         website: "https://goa-website.onrender.com/",
-        icons: [ReactIcon, GsapIcon, TailwindIcon,TsIcon,ZodIcon,NodeIcon, ShadCnIcon, ZustandIcon],
-
+        icons: [ReactIcon, GsapIcon, TailwindIcon, TsIcon, ZodIcon, NodeIcon, ShadCnIcon, ZustandIcon],
     },
-
+    {
+        title: "Postivus",
+        paragraph: "This project aims to create a website using React with the goal of connecting different components using NEXT js. Additionally, Tailwind CSS will be used to style the website.",
+        videoUrl: "/video/postivus-website.mp4",
+        status: "Active",
+        github: "https://github.com/davita101/positivus",
+        website: "https://positivus-jade-seven.vercel.app/",
+        icons: [ReactIcon, TailwindIcon, NextJsIcon],
+    },   {
+        title: "Portfolio",
+        paragraph: "My personal developer portfolio showcasing projects and skills. Crafted using React, Tailwind CSS, Three.js, GSAP, and Zustand. Built with performance and interactivity in mind.",
+        videoUrl: "/video/portfolio-website.mp4",
+        status: "Active",
+        github: "https://github.com/grdzelo-cloud/Portfolio",
+        website: "https://positivus-jade-seven.vercel.app/",
+        icons: [ReactIcon, TailwindIcon, ThreeJsIcon, ZustandIcon, GsapIcon, ],
+    },
 ]
+
+export const socialLinks = {
+    fb: "https://www.facebook.com/gela.gelashvili.71465572",
+    linkedin: "https://www.linkedin.com/in/davit-grdzelishvili/",
+    instagram: "https://www.instagram.com/davitactor/",
+    github: "https://github.com/davita101?"
+}

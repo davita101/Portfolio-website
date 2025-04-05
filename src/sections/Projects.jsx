@@ -4,15 +4,17 @@ import CanvasLoader from "../components/CanvasLoader.jsx";
 import {Center, OrbitControls, PerspectiveCamera} from "@react-three/drei";
 import {ProjectComputer} from "../components/models/RetroComputer.jsx";
 import {StepBack, StepForward} from "lucide-react";
-import {calculateSizes, projects} from "../constants/index.js";
 import {useMediaQuery} from "react-responsive";
 import {ReactIcon} from "../assets/icons/index.js";
+import {projects} from "../constants/index.js";
+import Button from "../components/ui/Button.jsx";
 
 export default function Projects() {
+    const isSmall = useMediaQuery({maxWidth: 440})
 
     const [counter, setCounter] = useState(0);
     return (
-        <section className=" xl:container c-space mx-auto py-20"
+        <section className="bg-linear-to-t xl:container c-space mx-auto py-20"
                  id="projects">
             <div className="grid grid-rows-2 grid-cols-2 gap-5 ">
                 <div
@@ -83,11 +85,8 @@ export default function Projects() {
                         />
                     </div>
                 </div>
-
                 <div
                     className="rounded-xl c-space col-span-2 lg:col-span-1 lg:row-span-2 md:row-span-2 row-start-2 h-96 bg-neutral-950">
-
-
                     <Canvas>
                         <ambientLight
                             intensity={10} color="white"/>
@@ -99,7 +98,7 @@ export default function Projects() {
                                 {/*<PerspectiveCamera makeDefault position={[0, 0, 30]}/>*/}
                                 <group
                                     position={[0, 1, 0]}
-                                    scale={.4}
+                                    scale={isSmall ? .16 : .4}
                                     rotation={[1.5, 0, 0]}>
                                     <ProjectComputer
                                         videoUrl={projects[counter].videoUrl}

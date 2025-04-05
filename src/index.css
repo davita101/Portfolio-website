@@ -14,10 +14,6 @@ body {
     --color-white: #adadad;
     --color-neutral-950: #121215;
 
-    --text-preset-1: 24px;
-    --text-preset-1--line-height: 120%;
-    --text-preset-1--letter-spacing: -0.5px;
-    --text-preset-1--font-weight: 700;
 }
 
 @layer utilities {
@@ -52,15 +48,18 @@ body {
 
 @layer base {
     button {
-        @apply cursor-pointer text-gray-400  hover:text-neutral-100 focus:outline-none sm:hidden flex;
+        @apply cursor-pointer text-gray-400  hover:text-neutral-100 focus:outline-none flex;
     }
 
     p {
         @apply leading-tight text-gray-400;
     }
+    input, textarea {
+        @apply border border-white p-2 rounded-md text-white outline-none;
+    }
 }
 
-.waweing-heand {
+.waving-hand {
     animation-name: wave-animation;
     animation-duration: 2s;
     animation-iteration-count: infinite;

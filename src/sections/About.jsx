@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useRef, useState} from 'react'
 import {
     ContactsIcon,
     GitIcon,
@@ -15,27 +15,51 @@ import {
 import {CoddingPicture, ProfilePicture} from "../assets/photos/index.js"
 import Globe from "react-globe.gl"
 import {Check, Copy} from "lucide-react";
+import {useGSAP} from "@gsap/react";
+import {gsap} from "gsap"
+import {ScrollTrigger} from "gsap/ScrollTrigger";
+import Button from "../components/ui/Button.jsx";
 
 export default function About() {
     const [copied, setCopied] = useState(false);
+    gsap.registerPlugin(ScrollTrigger)
+    useGSAP(() => {
+        const timeline = gsap.timeline()
+            .from("#aboutText div", {
+                scrollTrigger: {
+                    trigger: "#home",
+                    start: "100px",
+                    scrub: true,
+                },
+                duration: 1,
+                ease: "power1",
+                opacity: 0,
+                stagger: 0.3,
+
+            })
+
+        return () => {
+            timeline.endTime()
+        }
+    })
     const handleCopy = () => {
         navigator.clipboard.writeText('grdzelishvilidvaiti@gmail.com')
         setCopied(true)
-
         setTimeout(() => {
             setCopied(false)
         }, 2000)
     }
     return (
         <section className="relative xl:container mx-auto c-space my-20" id="about">
-            <div
-                className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
+            <div id={"aboutText"}
+                 className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
+
                 <div className="col-span-1 xl:row-span-3">
                     <div className="grid-container">
                         <img
                             src={ProfilePicture}
                             alt="Profile picture"
-                            className="w-full sm:h-[276px] h-fit object-contain"
+                            className="w-[300px] h-fit object-contain"
                         />
                         <div className="">
                             <p>
@@ -51,7 +75,7 @@ export default function About() {
 
                 <div className=" col-span-1 xl:row-span-3 w-full">
                     <div
-                        className="grid-container">
+                        className="grid-container justify-between">
 
                         <div className="flex flex-wrap content-center items-center justify-start gap-2">
                             <img src={ReactIcon} alt="React icon" className="img-w"/>
@@ -95,7 +119,7 @@ export default function About() {
                             <p>
                                 i'm base in Georgia Tbilisi, with remote work
                             </p>
-                            <a href="#concats"
+                            <a href="#contact"
                                className="bg-neutral-800 p-2 rounded-md text-neutral-50 mხ-auto mt-2 flex items-center gap-2"
                             >
                                 <div className="size-3 bg-green-400 rounded-full animate-pulse"/>
@@ -127,7 +151,7 @@ export default function About() {
                         <img
                             src={ContactsIcon}
                             alt="Contact icon"
-                            className="w-full md:w-[126px] sm:2-[276px] mx-auto h-fit object-cover"
+                            className="md:w-[126px] sm:w-[276px] w-[276px] mx-auto  object-cover"
                         />
                         <div className="space-y-2 hover:text-neutral-50 group">
                             <p className="grid-subtext text-center text-lg text-neutral-50">Contact me</p>
@@ -143,12 +167,9 @@ export default function About() {
                         </div>
                     </div>
                 </div>
-                <div className="absolute -bottom-20 left-0 right-0 w-full z-10 flex">
-                    <div
-                        className="p-1 px-3 rounded-sm bg-neutral-950 mx-auto gap-2 flex items-center justify-center  ">
-                        <div className="p-2 bg-neutral-50 rounded-full animate-pulse"/>
-                        <p className="text-neutral-300">Keep follow my projects</p>
-                    </div>
+
+                <div className="absolute -bottom-30 left-0 right-0 w-full z-10 flex">
+                    <Button>Keep follow my projects</Button>
                 </div>
             </div>
         </section>)
