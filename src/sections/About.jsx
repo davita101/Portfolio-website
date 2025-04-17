@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react'
+import React, {Suspense, useState} from 'react'
 import {
     ContactsIcon,
     GitIcon,
@@ -23,25 +23,7 @@ import Button from "../components/ui/Button.jsx";
 export default function About() {
     const [copied, setCopied] = useState(false);
     gsap.registerPlugin(ScrollTrigger)
-    useGSAP(() => {
-        const timeline = gsap.timeline()
-            .from("#aboutText div", {
-                scrollTrigger: {
-                    trigger: "#home",
-                    start: "100px",
-                    scrub: true,
-                },
-                duration: 1,
-                ease: "power1",
-                opacity: 0,
-                stagger: 0.3,
 
-            })
-
-        return () => {
-            timeline.endTime()
-        }
-    })
     const handleCopy = () => {
         navigator.clipboard.writeText('grdzelishvilidvaiti@gmail.com')
         setCopied(true)
@@ -51,6 +33,7 @@ export default function About() {
     }
     return (
         <section className="relative xl:container mx-auto c-space my-20" id="about">
+
             <div id={"aboutText"}
                  className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
 
@@ -76,7 +59,6 @@ export default function About() {
                 <div className=" col-span-1 xl:row-span-3 w-full">
                     <div
                         className="grid-container justify-between">
-
                         <div className="flex flex-wrap content-center items-center justify-start gap-2">
                             <img src={ReactIcon} alt="React icon" className="img-w"/>
                             <img src={TailwindIcon} alt="Tailwindcss icon" className="img-w"/>
@@ -103,7 +85,6 @@ export default function About() {
 
                 <div className=' col-span-1 xl:row-span-4'>
                     <div className="grid-container overflow-hidden flex justify-center items-center w-full">
-
                         <Globe
                             height={344}
                             width={325}
@@ -112,7 +93,6 @@ export default function About() {
                             backgroundColor={'rgba(0,0,0,0)'}
                             globeImageUrl="//unpkg.com/three-globe/example/img/earth-day.jpg"
                             bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-
                         />
                         <div className="flex flex-col justify-start items-start w-full">
                             <p className={"font-bold text-xl text-start text-slate-50"}>I work remotely</p>
@@ -172,5 +152,6 @@ export default function About() {
                     <Button>Keep follow my projects</Button>
                 </div>
             </div>
+
         </section>)
 }
