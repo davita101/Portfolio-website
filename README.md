@@ -36,3 +36,6 @@ Ensure you have **Node.js** (v16 or later) and **npm** installed on your machine
    ```bash
    git clone https://github.com/davita101/Portfolio-website.git
    cd Portfolio-website
+   npm run dev
+   ```   
+
